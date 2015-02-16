@@ -6,13 +6,17 @@ class historicalData():
 
 	def __init__(self):
 		stockSymbol = raw_input("Enter Stock Symbol: ")
+		startDate = raw_input("Enter Start Date (year-mm-dd): ")
+		endDate = raw_input("Enter End Date (year-mm-dd): ")
 		stockSymbol = stockSymbol.upper()
 		self.stockSymbol = stockSymbol
+		self.startDate = startDate
+		self.endDate = endDate
 		stock = Share(stockSymbol)
 		global companyStockSymbol
 		companyStockSymbol = stockSymbol
 		global historical 
-		historical = stock.get_historical('2014-01-01', '2014-12-02')
+		historical = stock.get_historical(startDate, endDate)
 
 	def getHistoricalData(self):
 		#filename 
